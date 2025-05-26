@@ -6,12 +6,353 @@
   <title>Pankaj Mehra - Data Analyst</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    /* CSS content (already applied in canvas) */
-    /* Keeping short here to focus on the structure */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0d1117, #0c0f14);
+      color: #f0f0f0;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(22, 27, 34, 0.9);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    nav a {
+      color: #58a6ff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #58a6ff;
+      transition: 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid #58a6ff;
+      margin-bottom: 20px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+    }
+
+    .header-text h1:first-child {
+      font-size: 36px;
+      color: #c9d1d9;
+      font-weight: 300;
+    }
+
+    .header-text h1:last-child {
+      font-size: 48px;
+      color: #58a6ff;
+      font-weight: 700;
+    }
+
+    .header-text h2 {
+      color: #39ff14;
+      margin: 10px 0 20px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .header-text p {
+      max-width: 700px;
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 auto;
+      color: #c9d1d9;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-card {
+      background: rgba(22, 27, 34, 0.95);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      margin-bottom: 40px;
+      backdrop-filter: blur(12px);
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #58a6ff;
+      font-weight: 600;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: #1c2128;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(88, 166, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(88, 166, 255, 0.3);
+    }
+
+    .project h3 {
+      color: #58a6ff;
+      font-size: 20px;
+    }
+
+    .project p {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .project button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      background-color: #238636;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .project button:hover {
+      background-color: #2ea043;
+    }
+
+    .contact-section {
+      background-color: #161b22;
+      padding: 40px 30px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background-color: #0d1117;
+      color: #f0f0f0;
+      font-size: 16px;
+    }
+
+    .contact-form button {
+      background-color: #58a6ff;
+      color: #0d1117;
+      font-weight: bold;
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #1f6feb;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .header-text h1 {
+        font-size: 28px;
+      }
+
+      .header-text h2 {
+        font-size: 20px;
+      }
+
+      .header-text p {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Portfolio HTML content goes here -->
-  <!-- Note: Full content is pulled from the canvas and already includes all recent changes -->
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#resume">Resume</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header>
+    <img src="https://via.placeholder.com/160" alt="Pankaj Mehra" class="profile-pic"/>
+    <div class="header-text">
+      <h1>Hello, I’m</h1>
+      <h1>Pankaj Mehra</h1>
+      <h2>Data Analyst</h2>
+      <p>
+        Passionate about transforming raw data into meaningful insights. Skilled in storytelling through data and enabling smarter decisions through dashboards and analysis.
+      </p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="section-card">
+      <h2 class="section-title">About Me</h2>
+      <p>I'm a Data Analyst skilled in Python, MySQL, Excel, and Power BI. I love cleaning data, building interactive dashboards, and identifying trends that impact business performance.</p>
+      <p><strong>Skills:</strong> Python, MySQL, Excel, Power BI, Data Cleaning, Visualization, Reporting</p>
+    </div>
+  </section>
+
+  <section id="resume">
+  <div class="section-card">
+    <h2 class="section-title">Resume</h2>
+
+    <div style="text-align: center; margin-bottom: 30px; line-height: 1.8;">
+      <strong style="font-size: 22px; display: block; margin-bottom: 5px;">Pankaj Mehra</strong>
+      Gali no.27, B-Block, Kamal Pur, Burari<br>
+      Delhi - 110084<br>
+      <strong>Mob:</strong> 8595045673<br>
+      <strong>Email:</strong> pankajmehra8512@gmail.com
+    </div>
+
+    <h3 style="color:#76ff03; border-bottom: 1px solid #58a6ff; padding-bottom: 5px; margin-top: 30px;">Computer Proficiency</h3>
+    <ul style="margin-bottom: 20px; line-height: 1.8;">
+      <li>Python</li>
+      <li>Power BI</li>
+      <li>MySQL</li>
+    </ul>
+
+    <h3 style="color:#76ff03; border-bottom: 1px solid #58a6ff; padding-bottom: 5px; margin-top: 30px;">Career Objective</h3>
+    <ul style="margin-bottom: 20px; line-height: 1.8;">
+      <li><strong>Data Management:</strong> Design, implement, and maintain large-scale data management systems, ensuring data quality and integrity.</li>
+      <li><strong>Dashboard Development:</strong> Design and develop interactive dashboards to facilitate data exploration and insights.</li>
+      <li><strong>Data Insights:</strong> Utilize statistical models and data visualization techniques to uncover hidden trends and insights.</li>
+      <li><strong>Data Visualization:</strong> Create dynamic and interactive Excel reports to communicate insights.</li>
+    </ul>
+
+    <h3 style="color:#76ff03; border-bottom: 1px solid #58a6ff; padding-bottom: 5px; margin-top: 30px;">Academic Details</h3>
+    <ul style="margin-bottom: 20px; line-height: 1.8;">
+      <li><strong>BCA (Programme)</strong> – Rajdhani College (IGNOU)</li>
+      <li><strong>Intermediate (Commerce)</strong> – Sarvodaya Bal Vidyalaya, Burari (CBSE)</li>
+    </ul>
+
+    <h3 style="color:#76ff03; border-bottom: 1px solid #58a6ff; padding-bottom: 5px; margin-top: 30px;">Hobbies & Interests</h3>
+    <ul style="margin-bottom: 30px; line-height: 1.8;">
+      <li>Interacting with People</li>
+      <li>Travelling</li>
+      <li>Learning New Skills</li>
+      <li>Efficient in Work</li>
+      <li>Listening to Music</li>
+    </ul>
+
+    <div style="text-align: center;">
+      <a href="Pankaj_resume.docx" download style="text-decoration: none;">
+        <button style="padding: 12px 20px; background-color: #58a6ff; border: none; border-radius: 8px; color: #fff; font-weight: 600; cursor: pointer;">
+          📄 Download Full Resume
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <section id="projects">
+    <div class="section-card">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <h3><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" style="height: 24px; vertical-align: middle; margin-right: 8px;"> Python Projects</h3>
+          <p>Interactive Python apps like a Digital Clock and basic Data Processing Tools.</p>
+          <a href="python-projects.html" target="_blank">
+            <button>View Python Projects</button>
+          </a>
+        </div>
+
+        <div class="project">
+          <h3><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" style="height: 24px; vertical-align: middle; margin-right: 8px;"> MySQL Project</h3>
+          <p>Sales Data analysis using SQL joins, filters, and aggregate queries.</p>
+          <button>View Project</button>
+        </div>
+
+        <div class="project">
+          <h3><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="Excel" style="height: 24px; vertical-align: middle; margin-right: 8px;"> Excel Dashboard</h3>
+          <p>Sales dashboard using pivot tables, slicers, and charts.</p>
+          <button>View Project</button>
+        </div>
+
+        <div class="project">
+          <h3><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Power_bi_logo_black.svg" alt="Power BI" style="height: 24px; vertical-align: middle; margin-right: 8px;"> Power BI Report</h3>
+          <p>Interactive report showing KPIs, sales trends, and forecasts.</p>
+          <button>View Project</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-card contact-section">
+      <h2>Contact Me</h2>
+      <form class="contact-form" action="mailto:pankaj@example.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
 </body>
 </html>
